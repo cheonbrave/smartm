@@ -14,6 +14,12 @@ class _DemoPageFooterState extends State<DemoPageFooter> {
       child: Column(
         children: <Widget>[
           Container(
+            decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(width: 0.5, color: Colors.black54),
+                  bottom: BorderSide(width: 0.5, color: Colors.black12),
+                )
+            ),
             height: 30.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -27,7 +33,7 @@ class _DemoPageFooterState extends State<DemoPageFooter> {
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("39,257", textAlign: TextAlign.center,),
+                    child: Text("39,257", textAlign: TextAlign.right,),
                   ),
                 ),
                 Expanded(
@@ -39,7 +45,7 @@ class _DemoPageFooterState extends State<DemoPageFooter> {
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("97,073", textAlign: TextAlign.center,),
+                    child: Text("97,073", textAlign: TextAlign.left,),
                   ),
                 ),Expanded(
                   flex:1,
@@ -47,7 +53,6 @@ class _DemoPageFooterState extends State<DemoPageFooter> {
                     child: Text("", textAlign: TextAlign.center,),
                   ),
                 ),
-
               ],
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smartm/demo_page.dart';
+import 'package:smartm/pages/demo_page.dart';
+import 'package:smartm/pages/demo_page2.dart';
 
 class TapPage extends StatefulWidget {
 
@@ -16,13 +17,13 @@ class _TapPageState extends State<TapPage> {
   int _selectedIdx = 0;
 
   List _pages = [
-    DemoPage(), // 0
-    DemoPage(), // 1
-    DemoPage(), // 2
+    DemoPage2(txt: "메뉴"), // 0
+    DemoPage2(txt: "스마트 홈"), // 1
+    DemoPage2(txt: "관심 종목"), // 2
     DemoPage(), // 3
-    DemoPage(), // 4
-    DemoPage(), // 5
-    DemoPage(), // 6
+    DemoPage2(txt: "주식 주문"), // 4
+    DemoPage2(txt: "자산 현황"), // 5
+    DemoPage2(txt: "주식 잔고"), // 6
   ];
 
   @override
@@ -34,13 +35,14 @@ class _TapPageState extends State<TapPage> {
       widget.tapIndex = null;
     }
 
-    var height = 13.0;
-
     return Scaffold(
         body: Center(
           child: _pages[_selectedIdx],
         ),
-        bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar:
+        SizedBox(
+        height: 92,
+        child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
           showSelectedLabels: false,
@@ -87,6 +89,9 @@ class _TapPageState extends State<TapPage> {
 
           ],
         )
+        )
+
+
     );
   }
 

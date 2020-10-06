@@ -69,6 +69,12 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
           ),
           Container(
             height: 40.0,
+            decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(width: 0.5, color: Colors.black12),
+                  bottom: BorderSide(width: 0.5, color: Colors.black12),
+                )
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -78,7 +84,6 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
                     padding: EdgeInsets.only(top:10.0, bottom: 7.0),
                     decoration: BoxDecoration(
                         border: Border(
-                          top: BorderSide(color: Colors.black38),
                           bottom: BorderSide(width: 3.0, color: Colors.deepOrange),
                         )
                     ),
@@ -92,12 +97,6 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
                   flex:1,
                   child: Container(
                     padding: EdgeInsets.only(top:10.0, bottom: 7.0),
-                    decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(color: Colors.black38),
-                          bottom: BorderSide(color: Colors.black38),
-                        )
-                    ),
                     child: Text("차트", textAlign: TextAlign.center, style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
                   ),
                 ),
@@ -105,12 +104,6 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
                   flex:1,
                   child: Container(
                     padding: EdgeInsets.only(top:10.0, bottom: 7.0),
-                    decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(color: Colors.black38),
-                          bottom: BorderSide(color: Colors.black38),
-                        )
-                    ),
                     child: Text("체크포인트", textAlign: TextAlign.center, style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
                   ),
                 ),
@@ -118,12 +111,6 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
                   flex:1,
                   child: Container(
                     padding: EdgeInsets.only(top:10.0, bottom: 7.0),
-                    decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(color: Colors.black38),
-                          bottom: BorderSide(color: Colors.black38),
-                        )
-                    ),
                     child: Text("뉴스", textAlign: TextAlign.center, style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
                   ),
                 ),
