@@ -26,7 +26,7 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("1,730", style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.red),),
+                            Text("1,000", style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.red),),
                             Row(
                               children: <Widget>[
                                 Text("증30/신45", style: TextStyle(fontSize: 15.0),),
