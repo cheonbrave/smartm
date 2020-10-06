@@ -27,6 +27,9 @@ class _DemoPageBodyState extends State<DemoPageBody> {
   // 테스트데이터 생성을 위한 난수발생
   Random _random = Random();
 
+  RegExp reg = new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+  Function mathFunc = (Match match) => '${match[1]},';
+
   @override
   void initState() {
     super.initState();
@@ -143,68 +146,110 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("", textAlign: TextAlign.center,),
+                    child: Text("",textAlign: TextAlign.center,),
                   ),
                 ),
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("${list_up_pr[index].waitAmount.toStringAsFixed(0)}", textAlign: TextAlign.right,),
+                    child: Text(
+                      "${list_up_pr[index].waitAmount.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.right,),
                   ),
                 ),
                 Expanded(
                   flex:2,
                   child: Container(
-                    child: Text("${list_up_pr[index].price.toStringAsFixed(0)}", textAlign: TextAlign.center,),
+                    color:Color(0xFFE5E5FF),
+                    height: _itemSize,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "${list_up_pr[index].price.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,),
                   ),
                 ),
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("${list_up_pr[index].ratio}", textAlign: TextAlign.left,),
+                    color:Color(0xFFE5E5FF),
+                    height: _itemSize,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "${list_up_pr[index].ratio}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left,),
                   ),
                 ),Expanded(
                   flex:1,
                   child: Container(
                     child: Text("", textAlign: TextAlign.center,),
+                  ),
+                ),
+                Expanded(
+                  flex:1,
+                  child: Container(
+                    child: Text("",textAlign: TextAlign.center,),
                   ),
                 ),
               ],
             ),
           ) :
           Container(
+
             height: 200.0,
             child: Row(
               children: <Widget>[
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("", textAlign: TextAlign.center,),
+                    child: Text("",textAlign: TextAlign.center,),
                   ),
                 ),
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("${list_down_pr[index-10].ratio}", textAlign: TextAlign.right,),
+                    child: Text("", textAlign: TextAlign.center,),
                   ),
                 ),
                 Expanded(
                   flex:2,
                   child: Container(
-                    child: Text("${list_down_pr[index-10].price.toStringAsFixed(0)}", textAlign: TextAlign.center,),
+                    color:Color(0xFFFFE5E5),
+                    height: _itemSize,
+                    alignment: Alignment.center,
+                    child: Text("${list_down_pr[index-10].price.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,),
                   ),
                 ),
                 Expanded(
                   flex:1,
                   child: Container(
-                    child: Text("${list_down_pr[index-10].waitAmount.toStringAsFixed(0)}", textAlign: TextAlign.left,),
-                  ),
-                ),Expanded(
-                  flex:1,
-                  child: Container(
-                    child: Text("", textAlign: TextAlign.center,),
+                    color:Color(0xFFFFE5E5),
+                    height: _itemSize,
+                    alignment: Alignment.center,
+                    child: Text("${list_down_pr[index-10].ratio}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left,),
                   ),
                 ),
+                Expanded(
+                  flex:1,
+                  child: Container(
+                    child: Text("${list_down_pr[index-10].waitAmount.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)}",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left,),
+                  ),
+                ),
+                Expanded(
+                  flex:1,
+                  child: Container(
+                    child: Text("",textAlign: TextAlign.center,),
+                  ),
+                ),
+
               ],
             ),
           ));
