@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smartm/tap_page.dart';
+import 'package:smartm/common/tap_page.dart';
 
 void main() => runApp(MyApp());
 
