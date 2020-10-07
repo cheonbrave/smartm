@@ -126,12 +126,12 @@ class _DemoPageBodyState extends State<DemoPageBody> {
   @override
   Widget build(BuildContext context) {
 
-    if(screen_h == 0.0){
+    //if(screen_h == 0.0){
       screen_h = MediaQuery.of(context).size.height;
-      // body 높이는 스크린높이에서 앱바(60), 헤더(120), 풋터(60), 탭바(92)를 뺀 값
-      body_h = screen_h - 60.0 - 120.0 - 60.0 - 92.0;
-      _itemSize = body_h/11.0;
-    }
+      // body 높이는 스크린높이에서 앱바(60), 헤더(120), 풋터(60), 탭바(70)를 뺀 값
+      body_h = screen_h - 60.0 - 120.0 - 60.0 - 70.0;
+      _itemSize = (body_h/11.0).ceilToDouble();
+    //}
 
     return Expanded(
       child: ListView.builder(
@@ -144,13 +144,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  flex:1,
-                  child: Container(
-                    child: Text("",textAlign: TextAlign.center,),
-                  ),
-                ),
-                Expanded(
-                  flex:1,
+                  flex:2,
                   child: Container(
                     child: Text(
                       "${list_up_pr[index].waitAmount.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)}",
@@ -181,37 +175,67 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,),
                   ),
-                ),Expanded(
-                  flex:1,
-                  child: Container(
-                    child: Text("", textAlign: TextAlign.center,),
-                  ),
                 ),
                 Expanded(
-                  flex:1,
-                  child: Container(
-                    child: Text("",textAlign: TextAlign.center,),
-                  ),
+                  flex:2,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex:1,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            Text("str"),
+                            Text("str"),
+                          ],
+                        )
+                      ),
+                      Expanded(
+                        flex:2,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Text("str"),
+                              Text("str"),
+                            ],
+                          )
+                      ),
+                    ],
+                  )
                 ),
               ],
             ),
           ) :
           Container(
-
             height: 200.0,
             child: Row(
               children: <Widget>[
                 Expanded(
-                  flex:1,
-                  child: Container(
-                    child: Text("",textAlign: TextAlign.center,),
-                  ),
-                ),
-                Expanded(
-                  flex:1,
-                  child: Container(
-                    child: Text("", textAlign: TextAlign.center,),
-                  ),
+                  flex:2,
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex:1,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: <Widget>[
+                                Text("str"),
+                                Text("str"),
+                              ],
+                            )
+                        ),
+                        Expanded(
+                            flex:1,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: <Widget>[
+                                Text("str"),
+                                Text("str"),
+                              ],
+                            )
+                        ),
+                      ],
+                    )
                 ),
                 Expanded(
                   flex:2,
@@ -236,20 +260,13 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                   ),
                 ),
                 Expanded(
-                  flex:1,
+                  flex:2,
                   child: Container(
                     child: Text("${list_down_pr[index-10].waitAmount.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)}",
                       style: TextStyle(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,),
                   ),
                 ),
-                Expanded(
-                  flex:1,
-                  child: Container(
-                    child: Text("",textAlign: TextAlign.center,),
-                  ),
-                ),
-
               ],
             ),
           ));
