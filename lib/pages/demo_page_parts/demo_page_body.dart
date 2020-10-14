@@ -35,7 +35,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
   RegExp reg = new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   Function mathFunc = (Match match) => '${match[1]},';
   
-  double boxPadding = 10.0;
+  double boxPadding = 12.0;
   double priceMargin = 5.0;
 
   @override
@@ -188,7 +188,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                                         :
                                     null,
                                     child: Container(
-                                      color: Color(0xFFf2f2ff),
+                                      color: Color(0xFFf3fafd),
                                       child: Row(
                                         children: <Widget>[
                                           Expanded(
