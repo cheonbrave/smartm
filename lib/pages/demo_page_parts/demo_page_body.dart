@@ -16,6 +16,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
 
   ScrollController _scrollControllerTop = ScrollController();
   ScrollController _scrollControllerDown = ScrollController();
+  ScrollController _scrollControllerLeftDown = ScrollController();
 
   double _itemSize = 50.0;
   double screen_h = 0.0;
@@ -35,6 +36,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
   Function mathFunc = (Match match) => '${match[1]},';
   
   double boxPadding = 10.0;
+  double priceMargin = 5.0;
 
   @override
   void initState() {
@@ -141,8 +143,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
 
     boxPadding = 10.0;
 
-    _scrollControllerTop.keepScrollOffset;
-    _scrollControllerDown.keepScrollOffset;
+    priceMargin = 0.0;
 
     return Expanded(
       child: SingleChildScrollView(
@@ -157,6 +158,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                     height: body_h,
                     child: ListView.builder(
                         controller: _scrollControllerTop,
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: 10,
                         itemExtent: _itemSize,
                         itemBuilder: (context, index) {
@@ -179,8 +181,9 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                               Expanded(
                                   flex:3,
                                   child: Container(
+                                    margin:EdgeInsets.only(top: priceMargin),
                                     decoration:
-                                    (list_down_pr[index].price == currentPrice) ?
+                                    (list_up_pr[index].price == currentPrice) ?
                                     BoxDecoration(border: Border.all(color: Colors.deepOrange, width: 2.0))
                                         :
                                     null,
@@ -233,96 +236,96 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('52주(고)'),
-                            Text(pi.top52.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('52주(고)', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.top52.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('52주(저)'),
-                            Text(pi.bottom52.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('52주(저)', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.bottom52.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('VI기준'),
-                            Text(pi.vi.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('VI기준', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.vi.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('상승VI'),
-                            Text(pi.vi_up.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('상승VI', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.vi_up.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('하락VI'),
-                            Text(pi.vi_down.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('하락VI', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.vi_down.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('상한가'),
-                            Text(pi.top_limit.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('상한가', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.top_limit.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('하한가'),
-                            Text(pi.bottom_limit.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('하한가', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.bottom_limit.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('전거'),
-                            Text(pi.pre_trade_amount.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('전거', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.pre_trade_amount.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('전종'),
-                            Text(pi.pre_end.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('전종', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.pre_end.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('시가'),
-                            Text(pi.start.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('시가', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.start.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('고가'),
-                            Text(pi.top.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('고가', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.top.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('저가'),
-                            Text(pi.bottom.toStringAsFixed(0).replaceAllMapped(reg, mathFunc)),
+                            Text('저가', style: TextStyle(fontSize: 12.0),),
+                            Text(pi.bottom.toStringAsFixed(0).replaceAllMapped(reg, mathFunc), style: TextStyle(fontSize: 12.0),),
                           ],
                         ),
                         SizedBox(height: boxPadding),
@@ -371,14 +374,14 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                               flex: 1,
                               child: Container(
                                 alignment: Alignment.center,
-                                child: Text('체결강도', style: TextStyle(fontWeight: FontWeight.bold),),
+                                child: Text('체결강도', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),),
                               ),
                             ),
                             Expanded(
                               flex: 1,
                               child: Container(
                                 alignment: Alignment.centerRight,
-                                child: Text('22.07', style: TextStyle(fontWeight: FontWeight.bold),),
+                                child: Text('22.07', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),),
                               ),
                             ),
                           ],
@@ -386,7 +389,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                         SizedBox(height: boxPadding),
                         Expanded(
                           child: ListView.builder(
-                            controller: _scrollControllerDown,
+                            controller: _scrollControllerLeftDown,
                             itemCount: 100,
                             itemExtent: 25.0,
                             itemBuilder: (context, index) {
@@ -396,14 +399,14 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                                     flex: 1,
                                     child: Container(
                                       alignment: Alignment.center,
-                                      child: Text('1,745'),
+                                      child: Text('1,745',style: TextStyle(fontSize: 12.0),),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 1,
                                     child: Container(
                                       alignment: Alignment.centerRight,
-                                      child: Text('1,111'),
+                                      child: Text('1,111',style: TextStyle(fontSize: 12.0),),
                                     ),
                                   ),
                                 ],
@@ -421,6 +424,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                     height: body_h,
                     child: ListView.builder(
                         controller: _scrollControllerDown,
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: 10,
                         itemExtent: _itemSize,
                         itemBuilder: (context, index) {
@@ -429,6 +433,7 @@ class _DemoPageBodyState extends State<DemoPageBody> {
                               Expanded(
                                 flex:3,
                                 child: Container(
+                                  margin:EdgeInsets.only(top: priceMargin),
                                   decoration:
                                   (list_down_pr[index].price == currentPrice) ?
                                     BoxDecoration(border: Border.all(color: Colors.deepOrange, width: 2.0))
