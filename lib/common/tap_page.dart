@@ -41,7 +41,7 @@ class _TapPageState extends State<TapPage> {
         ),
         bottomNavigationBar:
         SizedBox(
-        height: 92,
+        height: 66,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
