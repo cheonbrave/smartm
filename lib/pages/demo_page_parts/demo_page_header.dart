@@ -16,12 +16,13 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
         children: <Widget>[
           Expanded(
             child: Container(
+              padding: EdgeInsets.all(7.0),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     child: Container(
                       child: Padding(
-                        padding: EdgeInsets.only(left: 15.0),
+                        padding: EdgeInsets.only(left: 5.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,10 +57,32 @@ class _DemoPageHeaderState extends State<DemoPageHeader> {
                   ),
                   Expanded(
                     child: Container(
-                      color: Color(0xffe5e5ff),
                       height: double.infinity,
-                      alignment: Alignment.center,
-                      child: Text("Chart Area", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0), textAlign: TextAlign.center,),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Text('▼ 20', style: TextStyle(fontSize: 13.0),),
+                                Text('-1.13%', style: TextStyle(fontSize: 13.0),),
+                                SizedBox(height: 5.0,),
+                                Text('382.597', style: TextStyle(fontSize: 15.0),),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              color: Color(0xffe5e5ff),
+                              alignment: Alignment.center,
+                              child: Text('Chart Area', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),),
+                            ),
+                          )
+                        ],
+                      )
 
                     ),
                   )

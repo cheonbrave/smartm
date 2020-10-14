@@ -12,6 +12,9 @@ class PriceInfo{
   double vi_down;   // 하락 vi
   double pre_trade_amount;  // 전일 거래량
   double pre_end;   // 전일 종가
+
+  double top_limit;
+  double bottom_limit;
 }
 
 class PriceRow{
